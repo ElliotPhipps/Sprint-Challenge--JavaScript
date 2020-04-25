@@ -34,11 +34,19 @@ Edit this document to include your answers after each question. Make sure to lea
 
 2. What is the difference between a function and a method?
 
+    A method belongs in a function and a function is an object whereas a method is not an object.
+
 3. What is closure?
+
+    Closure is the idea of accessing an outer function's scope inside a function.
 
 4. Describe the four rules of the 'this' keyword.
 
+    The four rules of the this keyword are new, explicit, implicit, and window.
+
 5. Why do we need super() in an extended class?
+
+    Super() calls all the other attributes that are in the extended class.
 
 ## Project Set up
 

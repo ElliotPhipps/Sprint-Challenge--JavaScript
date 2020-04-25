@@ -84,11 +84,11 @@ The resulting contact information strings should have a space between the first 
 "Josh josh@example.com"
 
 Log the result of your new array. */
-const contactInfo = graduates.map(item => item.first_name + ' ', item => item.email);
+const contactInfo = graduates.map(item => item.first_name + ' ' + item.email);
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
-const unisWithUni = [];
+const unisWithUni = graduates.filter(item => item.university.includes('Uni'));
 console.log(unisWithUni);
 
 
@@ -114,8 +114,12 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const displayNames = [];
-console.log(displayNames);
+const displayNames = (arr) => {
+  arr.forEach(animal => {
+    console.log(`Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}.`)
+  })
+};
+console.log(displayNames(zooAnimals));
 
 /* Request 2: .map()
 
@@ -123,7 +127,7 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames = zooAnimals.map(item => item.animal_name.toLowerCase);
+const lowCaseAnimalNames = zooAnimals.map(item => item.animal_name.toLowerCase());
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -143,8 +147,12 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
-console.log(populationTotal);
+const populationTotal = zooAnimals.filter(item => item.population);
+const mapPop = populationTotal.map(item =>item.population);
+const popTotal = mapPop.reduce((accumulator, currentValue) => {
+  return accumulator +currentValue;
+})
+console.log(popTotal);
 
 
 /*
